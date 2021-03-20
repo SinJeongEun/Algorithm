@@ -4,14 +4,6 @@
 
 - #### INDEX
 
-  - **[1단계 : 입출력과 사칙연산](https://github.com/SinJeongEun/Algorithm#1단계--입출력과-사칙연산)**
-
-  - **[2단계 : if문](https://github.com/SinJeongEun/Algorithm#2단계--if문)**
-
-  - **[3단계 : for문](https://github.com/SinJeongEun/Algorithm#3단계--for문)**
-
-  - **[4단계 : while문](https://github.com/SinJeongEun/Algorithm#4단계--while문)**
-
   - **[5단계 : 1차원 배열](https://github.com/SinJeongEun/Algorithm#5단계--1차원-배열)**
 
   - **[6단계 : 함수](https://github.com/SinJeongEun/Algorithm#6단계--함수)**
@@ -47,6 +39,10 @@
 ### 
 
 - #### 1단계 : 입출력과 사칙연산 
+- [**10818번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/ArraySort.java) : 최소,최대
+- [**8958번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/OXquize.java) :OX 퀴즈의 결과를 일차원 배열로 입력받아 점수를 계산하는 문제
+- [**4344번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/UpAvg.java) : 평균계산 소수점 밑3자리 %.3f 
+
 
   
 
@@ -75,12 +71,107 @@
   ------
 
 - #### 6단계 : 함수
-
+- [**15596번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/MySum.java) : 정수 N개의 합
+- [**4673번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/SelfNumber.java) : 셀프 넘버
+- [**1065번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/Hansoo.java) : 한수
   
 
   ------
 
 - #### 7단계 : 문자열 
+- - [**1065번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/Hansoo.java) : -----
+
+60
+
+
+
+61
+
+- #### 4단계 : while문
+
+62
+
+
+
+63
+
+  
+
+64
+
+
+
+65
+
+  ------
+
+66
+
+
+
+67
+
+- #### 5단계 : 1차원 배열
+
+68
+
+
+
+69
+
+  
+
+70
+
+
+
+71
+
+  ------
+
+72
+
+
+
+73
+
+- #### 6단계 : 함수
+
+74
+
+- [**15596번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/MySum.java) : 정수 N개의 합
+
+75
+
+- [**4673번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/SelfNumber.java) : 셀프 넘버
+
+76
+
+- [**1065번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/Hansoo.java) : 한수
+
+77
+
+  
+
+78
+
+
+
+79
+
+  ------
+
+80
+
+
+
+81
+
+- #### 7단계 : 문자열 
+
+82
+
+- - [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : 문자의개수
 
   
 
