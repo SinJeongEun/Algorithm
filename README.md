@@ -38,33 +38,11 @@
 
 ### 
 
-- #### 1단계 : 입출력과 사칙연산 
+- #### 5단계 : 1차원 배열
 - [**10818번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/ArraySort.java) : 최소,최대
 - [**8958번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/OXquize.java) :OX 퀴즈의 결과를 일차원 배열로 입력받아 점수를 계산하는 문제
 - [**4344번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/UpAvg.java) : 평균계산 소수점 밑3자리 %.3f 
 
-
-  
-
-  ------
-
-- #### 2단계 : if문 
-
-  ------
-
-- #### 3단계 : for문
-
-  
-
-  ------
-
-- #### 4단계 : while문
-
-  
-
-  ------
-
-- #### 5단계 : 1차원 배열
 
   
 
@@ -79,7 +57,7 @@
   ------
 
 - #### 7단계 : 문자열 
-- - [**1065번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/Hansoo.java) : -----
+- - [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : -----
 
 60
 
@@ -171,7 +149,7 @@
 
 82
 
-- - [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : 문자의개수
+- [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : 문자의개수
 
   
 
