@@ -57,7 +57,7 @@
   ------
 
 - #### 7단계 : 문자열 
--  [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : -----
+-  [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : 문자개수
 
 
 
