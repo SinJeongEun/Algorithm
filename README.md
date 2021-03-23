@@ -59,9 +59,10 @@
 - #### 7단계 : 문자열 
 -  [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : 문자개수
 -  [**11720번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/MySum.java) : 정수합string->byte
+-  [**10809번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/FindAlphabet.java) :알파벳찾기
 
 
-
+------
 
 
 - #### 8단계 : 기본 수학 1 
