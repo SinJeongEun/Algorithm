@@ -39,9 +39,9 @@
 ### 
 
 - #### 5단계 : 1차원 배열
-- [**10818번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/ArraySort.java) : 최소,최대
-- [**8958번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/OXquize.java) :OX 퀴즈의 결과를 일차원 배열로 입력받아 점수를 계산하는 문제
-- [**4344번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/UpAvg.java) : 평균계산 소수점 밑3자리 %.3f 
+  - [**10818번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/ArraySort.java) : 최소,최대
+  - [**8958번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/OXquize.java) :OX 퀴즈의 결과를 일차원 배열로 입력받아 점수를 계산하는 문제
+  - [**4344번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/UpAvg.java) : 평균계산 소수점 밑3자리 %.3f 
 
 
   
@@ -49,24 +49,24 @@
   ------
 
 - #### 6단계 : 함수
-- [**15596번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/MySum.java) : 정수 N개의 합
-- [**4673번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/SelfNumber.java) : 셀프 넘버
-- [**1065번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/Hansoo.java) : 한수
+  - [**15596번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/MySum.java) : 정수 N개의 합
+  - [**4673번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/SelfNumber.java) : 셀프 넘버
+  - [**1065번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level6/Hansoo.java) : 한수
   
 
   ------
 
 - #### 7단계 : 문자열 
--  [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : 문자개수
--  [**11720번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/MySum.java) : 정수합string->byte
--  [**10809번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/FindAlphabet.java) :알파벳찾기
+  -  [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : 문자개수
+  -  [**11720번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/MySum.java) : 정수합string->byte
+  -  [**10809번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/FindAlphabet.java) :알파벳찾기
 
 
 ------
 
 
 - #### 8단계 : 기본 수학 1 
--[**2292번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level8/Honeycomb.java) : 벌집에서 최소 몇 개의 방을 지나가는지
+  -[**2292번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level8/Honeycomb.java) : 벌집에서 최소 몇 개의 방을 지나가는지
   
 
   ------
