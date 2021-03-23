@@ -66,7 +66,7 @@
 
 
 - #### 8단계 : 기본 수학 1 
-
+-[**2292번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level8/Honeycomb.java) : 벌집에서 최소 몇 개의 방을 지나가는지
   
 
   ------
