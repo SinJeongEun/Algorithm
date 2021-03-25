@@ -74,7 +74,7 @@
   ------
 
 - #### 9단계 : 기본 수학 2
-
+  -[**1085**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level9/EscapeARectangle.java) : 직사각형에서 
   
 
   ------
