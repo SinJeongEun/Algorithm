@@ -60,6 +60,7 @@
   -  [**1152번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/CountWords.java) : 문자개수
   -  [**11720번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/MySum.java) : 정수합string->byte
   -  [**10809번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level7/FindAlphabet.java) :알파벳찾기
+  -  [**2675번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level7/RepeatWords.java) : 문자열의 각 단어별 
 
 
 ------
