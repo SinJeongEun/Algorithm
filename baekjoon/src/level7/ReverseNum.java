@@ -17,10 +17,7 @@ public class ReverseNum {
 		int s2 = Integer.parseInt((new StringBuilder(st.nextToken()).reverse().toString()));
 		
 		
-		if(s1 < s2) {
-			System.out.println(s2);
-		}
-		else System.out.println(s2);
+		System.out.print(s1 > s2 ? s1:s2);
 		
 		
 
