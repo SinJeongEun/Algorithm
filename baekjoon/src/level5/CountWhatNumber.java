@@ -14,7 +14,7 @@ public class CountWhatNumber {
 		
 		String result = Integer.toString(a*b*c);
 		
-		int counts[] = new int[9];
+		int counts[] = new int[10];
 		for(int i=0;i<9;i++) {
 			counts[i]=0;
 		}
