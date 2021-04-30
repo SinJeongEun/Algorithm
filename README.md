@@ -44,6 +44,7 @@
   - [**4344번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/UpAvg.java) : 평균계산 소수점 밑3자리 %.3f 
   - [**2562번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level5/FindMaxNum.java) : 배열에서 최댓값 찾기
   - [**2577번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level5/CountWhatNumber.java):각 숫자에 해당하는 배열인덱스에 count++
+  - [**3052번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level5/Remainder.java) : hashMap사용하여 반복제외 숫자 개수 출력
 
 
   
