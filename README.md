@@ -38,13 +38,14 @@
 
 ### 
 
-- #### 5단계 : 1차원 배열
+- #### 5단계 : 1차원 배열  
   - [**10818번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/ArraySort.java) : 최소,최대
   - [**8958번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/OXquize.java) :OX 퀴즈의 결과를 일차원 배열로 입력받아 점수를 계산하는 문제
   - [**4344번**](https://github.com/SinJeongEun/Algorithm/blob/master/baekjoon/src/level5/UpAvg.java) : 평균계산 소수점 밑3자리 %.3f 
   - [**2562번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level5/FindMaxNum.java) : 배열에서 최댓값 찾기
   - [**2577번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level5/CountWhatNumber.java):각 숫자에 해당하는 배열인덱스에 count++
   - [**3052번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level5/Remainder.java) : hashMap사용하여 반복제외 숫자 개수 출력
+  - [**1546번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level5/ManipulatedScore.java) : 평균 조작 
 
 
   
