@@ -69,6 +69,8 @@
   -  [**2908번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level7/ReverseNum.java) : 숫자 뒤집어 저장
   -  [**5622번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level7/Dial_5622.java): switch-case 
   -  [**1316번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level7/GroupWordsChecker.java) : 단어의 알파벳이 연속적으로 반복되는지 확인
+  -  [**2941번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level7/CroatiaAlphabet.java) : 크로아티아 알파벳 count
+  -  [**11654번**](https://github.com/SinJeongEun/BaekJoon_Algorithm/blob/master/baekjoon/src/level7/Asci_value.java) : 아스키 코드 값 출력
 
 
 ------
