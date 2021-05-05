@@ -10,7 +10,6 @@ public class Asci_value {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int i = br.read();
         System.out.println(i);
-
 	}
 
 }
