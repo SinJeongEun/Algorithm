@@ -33,9 +33,6 @@ public class Robot_14503 {
         moves.put(2,new int[]{1,0}); //남
         moves.put(1,new int[]{0,1}); //동
 
-//        System.out.println(move.get(1)[0]);
-//        System.out.println(move.get(1)[1]);
-
         String[] position = br.readLine().split(" ");
         //청소기 시작 위치
         int y = func.apply(position[0]);
@@ -50,48 +47,43 @@ public class Robot_14503 {
             }
         }
         cleanUp(y,x,direct);
-        System.out.println("~~ " + clean);
+        System.out.println(clean);
     }
 
     public static void cleanUp(int y, int x, int direct){
         //1.  현재 위치를 청소한다.
         if(map[y][x] == 0){
             map[y][x] = 2;
-            System.out.println("clean~~~~~~~~");
             clean++;
         }
 
         //2. 현재 방향 기준에서 왼쪽 방향으로 탐색한다.
         int next_y = 0;
         int next_x = 0;
-//        System.out.println(" origin y : " + y);
-//        System.out.println(" origin x : " + x);
+        boolean flag = false;
+        int origin = direct;
         for (int i = 0; i < 4; i++) {
             int next_d = (direct + 3) % 4;
-            int[] move = moves.get(next_d);
-            next_y = y + move[0];
-            next_x = x + move[1];
-//            System.out.println(next_d);
-//            System.out.println("y : " + next_y);
-//            System.out.println("x : " + next_x);
+            next_y = y +  moves.get(next_d)[0];
+            next_x = x +  moves.get(next_d)[1];
 
             if(next_y >=0 && next_y >=0 && next_y < N && next_x < M && map[next_y][next_x] == 0){
                 cleanUp(next_y, next_x, next_d);
-//                System.out.println("``````");
+                flag = true;
                 break;
             }
-//            count++;
-            direct = (direct + 3) % 4; // ???????? 고민
-//            System.out.println("sdf  " + direct);
+            direct = (direct + 3) % 4;
         }
 
         //3. 사방이 모두 벽이거나, 청소가 된 경우 방향을 유지하고 후진한다. 후진 방향이 벽이면 종료
-        int back = (direct + 2) % 4;
-        int dy = y + moves.get(back)[0];
-        int dx = x + moves.get(back)[1];
-        System.out.println("!!!");
-        if(dy >= 0 && dx >=0 && dy<N && dx<M && map[dy][dx] != 1){ // 벽이 아니면
-            cleanUp(dy, dx, back);
+        if(!flag) {
+            int back = (origin + 2) % 4;
+            int dy = y + moves.get(back)[0];
+            int dx = x + moves.get(back)[1];
+            if(dy >= 0 && dx >=0 && dy<N && dx<M && map[dy][dx] != 1){ // 벽이 아니면
+                cleanUp(dy, dx, origin); // 방향 유지한채로 후진 ! 이 부분때문에 stackoverfolow error
+            }
+
         }
     }
 
