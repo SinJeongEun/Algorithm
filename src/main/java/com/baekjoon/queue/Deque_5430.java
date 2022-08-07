@@ -19,6 +19,7 @@ public class Deque_5430 {
             int n = Integer.parseInt(br.readLine());
             if(n == 0) {
                 System.out.println("error");
+                br.readLine();
                 continue;
             }
             String str = br.readLine();
@@ -28,6 +29,7 @@ public class Deque_5430 {
 
             for (int a = 0; a < arr.length; a++) {
                 deque.add(arr[a]);
+                System.out.println(arr[a]);
             }
             AC(commands, deque);
 
@@ -59,24 +61,35 @@ public class Deque_5430 {
         }
 
         //출력문 만들기
-        if(deque.isEmpty()) {
-            System.out.println("error");
-            return;
-        }
+//        if(deque.isEmpty()) {
+//            System.out.println("error");
+//            return;
+//        }
         if(isFront){
             sb.append("[");
-            sb.append(deque.pollFirst());
-            while(!deque.isEmpty()){
-                sb.append(',').append(deque.pollFirst());
+            if(deque.isEmpty()) {
+                sb.append("]");
+
+            } else {
+
+                sb.append(deque.pollFirst());
+                while(!deque.isEmpty()){
+                    sb.append(',').append(deque.pollFirst());
+                }
+                sb.append("]");
             }
-            sb.append("]");
         } else {
             sb.append("[");
-            sb.append(deque.pollLast());
-            while(!deque.isEmpty()){
-                sb.append(',').append(deque.pollLast());
+            if(deque.isEmpty()) {
+                sb.append("]");
+
+            } else {
+                sb.append(deque.pollLast());
+                while (!deque.isEmpty()) {
+                    sb.append(',').append(deque.pollLast());
+                }
+                sb.append("]");
             }
-            sb.append("]");
         }
         System.out.println(sb);
     }
