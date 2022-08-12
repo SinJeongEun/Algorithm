@@ -50,24 +50,13 @@ public class BFS_6087 {
 
                 if(map[y][x] == 'C') {
                     if(startPoint == null) startPoint = new Point(y, x, -1, 0);
-                    else {
-                        endPoint = new Point(y, x, -1, 0);
-                        System.out.println(">>>>>  " + y +" " + x);
-                    }
+                    else endPoint = new Point(y, x, -1, 0);
                 }
             }
         }
 
         bfs();
         System.out.println(min);
-
-        for (int y = 0; y < H; y++) {
-            for (int x = 0; x < W; x++) {
-                System.out.print(mirrors[y][x] + " ");
-            }
-            System.out.println();
-        }
-
 
     }
 
@@ -84,7 +73,6 @@ public class BFS_6087 {
             int nm = now.mirror;
 
             if(ny == endPoint.y && nx == endPoint.x){
-                System.out.println("~~~~~~~~~~~~~~~~~~");
                 min = Math.min(min, nm);
                 continue;
             }
@@ -99,7 +87,6 @@ public class BFS_6087 {
                     if(nd != -1 && nd != direction){
                         // 방향이 현재 진행하는 방향과 다르므로 꺽였다는 뜻이다. -> 거울 추가 조건
                         ++countMirror;
-                        System.out.println(countMirror);
                     }
 
                     if(mirrors[y][x] == 0 || mirrors[y][x] >= countMirror) {
