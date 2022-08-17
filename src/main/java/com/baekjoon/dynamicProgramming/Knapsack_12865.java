@@ -1,4 +1,4 @@
-package com.example.baekjoon.baekjoon.backtracking;
+package com.example.baekjoon.baekjoon.dynamicProgramming;
 
 import java.io.BufferedReader;
 import java.io.IOException;
