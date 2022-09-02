@@ -9,6 +9,8 @@ import java.util.StringTokenizer;
 import java.util.function.Function;
 
 public class DFS_15686 {
+    //첫째 줄에 폐업시키지 않을 치킨집을 최대 M개를 골랐을 때, 도시의 치킨 거리의 최솟값을 출력한다.
+    //m 값을 깊이로해서 최대 치킨집을 구하고, 최솟값을 찾는다.
     static int map[][];
     static int n, m, answer;
     static ArrayList<Point> chicken, house;
@@ -61,9 +63,12 @@ public class DFS_15686 {
                 int r1 = house.get(i).r;
                 int c1 = house.get(i).c;
                 int min = Integer.MAX_VALUE;
+
+                //한 집당 모든 치킨집과의 거리를 계산하고  최솟값을 찾는다.
                 for (Point p : select) {
                     int r2 = p.r;
                     int c2 = p.c;
+                    System.out.println("chick : " + r2 + " " + c2);
                     min = Math.min(min, getDistance(r1, c1, r2, c2));
                 }
                 sum += min;
@@ -74,6 +79,7 @@ public class DFS_15686 {
 
         for (int i = start; i < chicken.size(); i++) {
             select.add(new Point(chicken.get(i).r, chicken.get(i).c));
+            System.out.println("chicken : "+ chicken.get(i).r + " " + chicken.get(i).c);
             selectChicken(i + 1, dept + 1);
             select.pop();
         }
