@@ -8,7 +8,7 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 import java.util.function.Function;
 
-public class DFS_15686 {
+public class DFS_15686_다시풀기 {
     //첫째 줄에 폐업시키지 않을 치킨집을 최대 M개를 골랐을 때, 도시의 치킨 거리의 최솟값을 출력한다.
     //m 값을 깊이로해서 최대 치킨집을 구하고, 최솟값을 찾는다.
     static int map[][];
