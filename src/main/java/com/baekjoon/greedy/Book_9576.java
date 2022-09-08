@@ -7,6 +7,9 @@ import java.util.*;
 import java.util.function.Function;
 
 public class Book_9576 {
+    //그리디 알고리즘
+    //1.탐욕 선택 속성 : 이전의 선택이 이후에 영향을 주지 않앙야 한다.
+    //2. 최적 부분 구조 : 부분문제의 최적결과가 전체에도 그대로 적용되야 한다.
     static int testCase;
     static List<int[]> lists = new ArrayList<>();
     static boolean visited[];
@@ -44,7 +47,6 @@ public class Book_9576 {
         lists.stream().forEach(o -> {
                     for (int a = o[0]; a <= o[1]; a++) {
                         if(!visited[a]){
-                            System.out.println(">>  " + a);
                             System.out.println(visited[a]);
                             count++;
                             visited[a] = true;
