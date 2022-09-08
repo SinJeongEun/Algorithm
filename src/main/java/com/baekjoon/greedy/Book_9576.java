@@ -3,10 +3,7 @@ package com.example.baekjoon.baekjoon.greedy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.function.Function;
 
 public class Book_9576 {
@@ -38,13 +35,12 @@ public class Book_9576 {
             share();
             System.out.println(count);
 
-//            lists.stream().forEach(a-> System.out.println(a[0] + "  " + a[1]));
         }
     }
 
     private static void share() {
-//        System.out.println("~~" + visited.length);
         //책 나눠주기
+        //b가 가장 낮은 순부터, a-b 에서 아직 빌려주지 않은 가장 번호가 낮은 책을 빌려준다.
         lists.stream().forEach(o -> {
                     for (int a = o[0]; a <= o[1]; a++) {
                         if(!visited[a]){
