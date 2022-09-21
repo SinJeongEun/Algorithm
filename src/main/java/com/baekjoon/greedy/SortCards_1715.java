@@ -34,7 +34,6 @@ public class SortCards_1715 {
                 minHeap.add(together);
             }
         }
-
         System.out.println(total);
     }
 }

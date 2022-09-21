@@ -32,13 +32,11 @@ public class BulbAndSwitch_2138 {
         turnOnOff(1,now.clone(),0);
         turnOnOff(1,changeArray(0, now),1);
         System.out.println(mmin == Integer.MAX_VALUE ? -1 : mmin);
-
     }
 
     public static void turnOnOff(int idx, boolean[]arr, int cnt) {
         int result = cnt;
         if(idx == n) {
-//            result = Math.min(mmin,result);
             for (int i = 0; i < n; i++) {
                 if(arr[i] != goal[i]) {
                     result = Integer.MAX_VALUE;
@@ -46,13 +44,10 @@ public class BulbAndSwitch_2138 {
                 }
             }
             mmin = Math.min(mmin, result);
-//            System.out.println(mmin);
             return;
-
         }
         if(arr[idx - 1] != goal[idx - 1]) turnOnOff(idx + 1, changeArray(idx, arr), cnt + 1);
         else turnOnOff(idx + 1, arr, cnt);
-
     }
 
     public static boolean[] changeArray(int idx, boolean[] arr) {
