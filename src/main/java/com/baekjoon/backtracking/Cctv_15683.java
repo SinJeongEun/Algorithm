@@ -11,7 +11,7 @@ import java.util.function.Function;
 public class Cctv_15683 {
     // 순열을 사용하여 풀면 된다.
 //    static int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}}; // 상 우 하 좌
-    static int[][] board;
+//    static int[][] board;
     static List<Point> cctvList = new ArrayList<>();
     static int N;
     static int M;
@@ -32,7 +32,7 @@ public class Cctv_15683 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = func.apply(st.nextToken());
         M = func.apply(st.nextToken());
-        board = new int[N][M];
+        int[][] board = new int[N][M];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -44,7 +44,7 @@ public class Cctv_15683 {
             }
         }
         limit = cctvList.size();
-        backTrack(board, 1);
+        backTrack(board, 0);
         System.out.println(min);
 
     }
@@ -55,96 +55,97 @@ public class Cctv_15683 {
             solution(arr);
         }
         else {
-            int tmp[][];
-            for (int num = 0; num < limit; num++) {
-                Point now = cctvList.get(dept - 1);
-                if (now.num == 1){
+            int tmp[][] = arr.clone();
+            for (int idx = 0; idx < limit; idx++) {
+                Point now = cctvList.get(dept);
+                if (now.num == 1) {
+                    int tmp1[][];
+                    System.out.println(now.num + "  >>>>>>>>>>");
+                    System.out.println();
+
+                    tmp1 = tmp.clone();
+                    checkDown(tmp1, now.y, now.x);
+                    backTrack(tmp1, dept + 1);
+
+                    tmp1 = tmp.clone();
+                    checkRight(tmp1, now.y, now.x);
+                    backTrack(tmp1, dept + 1);
+
+                    tmp1 = tmp.clone();
+                    checkUp(tmp1, now.y, now.x);
+                    backTrack(tmp1, dept + 1);
+
+                    tmp1 = tmp.clone();
+                    checkLeft(tmp1, now.y, now.x);
+                    backTrack(tmp1, dept + 1);
+                } else if (now.num == 2) {
                     tmp = arr.clone();
                     checkDown(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                    tmp = arr.clone();
-                    checkRight(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                    tmp = arr.clone();
                     checkUp(tmp, now.y, now.x);
                     backTrack(tmp, dept + 1);
 
                     tmp = arr.clone();
+                    checkRight(tmp, now.y, now.x);
+                    checkLeft(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+
+                } else if (now.num == 3) {
+                    tmp = arr.clone();
+                    checkDown(tmp, now.y, now.x);
+                    checkRight(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+                    tmp = arr.clone();
+                    checkDown(tmp, now.y, now.x);
+                    checkLeft(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+                    tmp = arr.clone();
+                    checkLeft(tmp, now.y, now.x);
+                    checkUp(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+                    tmp = arr.clone();
+                    checkUp(tmp, now.y, now.x);
+                    checkRight(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+                } else if (now.num == 4) {
+                    tmp = arr.clone();
+                    checkLeft(tmp, now.y, now.x);
+                    checkRight(tmp, now.y, now.x);
+                    checkUp(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+                    tmp = arr.clone();
+                    checkUp(tmp, now.y, now.x);
+                    checkDown(tmp, now.y, now.x);
+                    checkLeft(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+                    tmp = arr.clone();
+                    checkLeft(tmp, now.y, now.x);
+                    checkRight(tmp, now.y, now.x);
+                    checkDown(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+                    tmp = arr.clone();
+                    checkUp(tmp, now.y, now.x);
+                    checkDown(tmp, now.y, now.x);
+                    checkRight(tmp, now.y, now.x);
+                    backTrack(tmp, dept + 1);
+
+                } else if (now.num == 5) {
+                    tmp = arr.clone();
+                    checkDown(tmp, now.y, now.x);
+                    checkRight(tmp, now.y, now.x);
+                    checkUp(tmp, now.y, now.x);
                     checkLeft(tmp, now.y, now.x);
                     backTrack(tmp, dept + 1);
                 }
-               else if (now.num == 2){
-                    tmp = arr.clone();
-                    checkDown(tmp, now.y, now.x);
-                    checkUp(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
 
-                    tmp = arr.clone();
-                    checkRight(tmp, now.y, now.x);
-                    checkLeft(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-
-                }
-                else if (now.num == 3){
-                    tmp = arr.clone();
-                    checkDown(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                    tmp = arr.clone();
-                    checkDown(tmp, now.y, now.x);
-                    checkLeft(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                    tmp = arr.clone();
-                    checkLeft(tmp, now.y, now.x);
-                    checkUp(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                    tmp = arr.clone();
-                    checkUp(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                }
-                else if (now.num == 4){
-                    tmp = arr.clone();
-                    checkLeft(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    checkUp(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                    tmp = arr.clone();
-                    checkUp(tmp, now.y, now.x);
-                    checkDown(tmp, now.y, now.x);
-                    checkLeft(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                    tmp = arr.clone();
-                    checkLeft(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    checkDown(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                    tmp = arr.clone();
-                    checkUp(tmp, now.y, now.x);
-                    checkDown(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                }
-                else if (now.num == 5){
-                    tmp = arr.clone();
-                    checkDown(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    checkUp(tmp, now.y, now.x);
-                    checkLeft(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-                }
-
+//            }
             }
         }
     }
@@ -158,34 +159,35 @@ public class Cctv_15683 {
             }
             System.out.println();
         }
+        System.out.println();
         min = Math.min(min, result);
     }
 
 
     private static void checkDown(int[][] arr, int y, int x){
         int ny = y + 1;
-        while (ny < N && arr[ny][x] == 0) {
+        while (ny < N && (arr[ny][x] == 0 || arr[ny][x] == -1)) {
             arr[ny][x] = -1;
             ny++;
         }
     }
     private static void checkUp(int[][] arr, int y, int x){
         int ny = y - 1;
-        while (ny >= 0 && arr[ny][x] == 0) {
+        while (ny >= 0 && (arr[ny][x] == 0 || arr[ny][x] == -1)) {
             arr[ny][x] = -1;
             ny--;
         }
     }
     private static void checkLeft(int[][] arr, int y, int x){
         int nx = x - 1;
-        while (nx >= 0 && arr[y][nx] == 0) {
+        while (nx >= 0 && (arr[y][nx] == 0 || arr[y][nx] == -1)) {
             arr[y][nx] = -1;
             nx--;
         }
     }
     private static void checkRight(int[][] arr, int y, int x){
         int nx = x + 1;
-        while (nx < M  && arr[y][nx] == 0) {
+        while (nx < M  && (arr[y][nx] == 0 || arr[y][nx] == -1)) {
             arr[y][nx] = -1;
             nx++;
         }
