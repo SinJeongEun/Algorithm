@@ -17,6 +17,11 @@ public class Cctv_15683 {
     static int M;
     static int limit;
     static int min = Integer.MAX_VALUE;
+    static boolean visited1[] = new boolean[4];
+    static boolean visited2[] = new boolean[2];
+    static boolean visited3[] = new boolean[4];
+    static boolean visited4[] = new boolean[4];
+    static boolean visited5[] = new boolean[1];
     static class Point {
         int num, y, x;
 
@@ -49,120 +54,132 @@ public class Cctv_15683 {
 
     }
 
+
     private static void backTrack(int[][]arr, int dept) {
         if(dept == limit) {
             // 사각지대 개수 구하기
             solution(arr);
         }
         else {
-            int tmp[][] = arr.clone();
+            Point now = cctvList.get(dept);
+            int tmp[][];
             for (int idx = 0; idx < limit; idx++) {
-                Point now = cctvList.get(dept);
-                if (now.num == 1) {
-                    int tmp1[][];
-                    System.out.println(now.num + "  >>>>>>>>>>");
-                    System.out.println();
+                switch (now.num) {
+                    case 1 :
+                        tmp= deepCopy(arr);
+                        checkDown(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                    tmp1 = tmp.clone();
-                    checkDown(tmp1, now.y, now.x);
-                    backTrack(tmp1, dept + 1);
+                        // clone 은 깊은 복사가 아니다 깊은 복사하는 함수를 구현해야한다!!!!!!
+                        tmp= deepCopy(arr);
+                        checkRight(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                    tmp1 = tmp.clone();
-                    checkRight(tmp1, now.y, now.x);
-                    backTrack(tmp1, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkUp(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                    tmp1 = tmp.clone();
-                    checkUp(tmp1, now.y, now.x);
-                    backTrack(tmp1, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkLeft(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
+                        break;
 
-                    tmp1 = tmp.clone();
-                    checkLeft(tmp1, now.y, now.x);
-                    backTrack(tmp1, dept + 1);
-                } else if (now.num == 2) {
-                    tmp = arr.clone();
-                    checkDown(tmp, now.y, now.x);
-                    checkUp(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                    case 2:
+                        tmp= deepCopy(arr);
+                        checkDown(tmp, now.y, now.x);
+                        checkUp(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                    tmp = arr.clone();
-                    checkRight(tmp, now.y, now.x);
-                    checkLeft(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkRight(tmp, now.y, now.x);
+                        checkLeft(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
+                        break;
 
+                    case 3:
+                        tmp= deepCopy(arr);
+                        checkDown(tmp, now.y, now.x);
+                        checkRight(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                } else if (now.num == 3) {
-                    tmp = arr.clone();
-                    checkDown(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkDown(tmp, now.y, now.x);
+                        checkLeft(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                    tmp = arr.clone();
-                    checkDown(tmp, now.y, now.x);
-                    checkLeft(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkLeft(tmp, now.y, now.x);
+                        checkUp(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                    tmp = arr.clone();
-                    checkLeft(tmp, now.y, now.x);
-                    checkUp(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkUp(tmp, now.y, now.x);
+                        checkRight(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
+                        break;
 
-                    tmp = arr.clone();
-                    checkUp(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                    case 4:
+                        tmp= deepCopy(arr);
+                        checkLeft(tmp, now.y, now.x);
+                        checkRight(tmp, now.y, now.x);
+                        checkUp(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                } else if (now.num == 4) {
-                    tmp = arr.clone();
-                    checkLeft(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    checkUp(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkUp(tmp, now.y, now.x);
+                        checkDown(tmp, now.y, now.x);
+                        checkLeft(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                    tmp = arr.clone();
-                    checkUp(tmp, now.y, now.x);
-                    checkDown(tmp, now.y, now.x);
-                    checkLeft(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkLeft(tmp, now.y, now.x);
+                        checkRight(tmp, now.y, now.x);
+                        checkDown(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
 
-                    tmp = arr.clone();
-                    checkLeft(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    checkDown(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                        tmp= deepCopy(arr);
+                        checkUp(tmp, now.y, now.x);
+                        checkDown(tmp, now.y, now.x);
+                        checkRight(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
+                        break;
 
-                    tmp = arr.clone();
-                    checkUp(tmp, now.y, now.x);
-                    checkDown(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
-
-                } else if (now.num == 5) {
-                    tmp = arr.clone();
-                    checkDown(tmp, now.y, now.x);
-                    checkRight(tmp, now.y, now.x);
-                    checkUp(tmp, now.y, now.x);
-                    checkLeft(tmp, now.y, now.x);
-                    backTrack(tmp, dept + 1);
+                    case 5:
+                        tmp= deepCopy(arr);
+                        checkDown(tmp, now.y, now.x);
+                        checkRight(tmp, now.y, now.x);
+                        checkUp(tmp, now.y, now.x);
+                        checkLeft(tmp, now.y, now.x);
+                        backTrack(tmp, dept + 1);
+                        break;
                 }
-
-//            }
             }
         }
+
     }
 
-    private static void solution(int arr[][]) {
+    private static void solution(int[][] arr) {
         int result = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 if(arr[i][j] == 0) result++;
-                System.out.print(arr[i][j] + " ");
+//                System.out.print(arr[i][j] + " ");
             }
-            System.out.println();
+//            System.out.println();
         }
-        System.out.println();
+//        System.out.println();
         min = Math.min(min, result);
     }
 
+    private static int[][] deepCopy(int [][] arr) {
+        int[][] copy = new int[N][M];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                copy[i][j] = arr[i][j];
+            }
+        }
+        return copy;
+    }
 
     private static void checkDown(int[][] arr, int y, int x){
         int ny = y + 1;
