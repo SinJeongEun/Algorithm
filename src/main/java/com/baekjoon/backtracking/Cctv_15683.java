@@ -9,19 +9,11 @@ import java.util.StringTokenizer;
 import java.util.function.Function;
 
 public class Cctv_15683 {
-    // 순열을 사용하여 풀면 된다.
-//    static int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}}; // 상 우 하 좌
-//    static int[][] board;
     static List<Point> cctvList = new ArrayList<>();
     static int N;
     static int M;
     static int limit;
     static int min = Integer.MAX_VALUE;
-    static boolean visited1[] = new boolean[4];
-    static boolean visited2[] = new boolean[2];
-    static boolean visited3[] = new boolean[4];
-    static boolean visited4[] = new boolean[4];
-    static boolean visited5[] = new boolean[1];
     static class Point {
         int num, y, x;
 
@@ -50,10 +42,10 @@ public class Cctv_15683 {
         }
         limit = cctvList.size();
         backTrack(board, 0);
+//        if(cctvList.size() == 0) min = 0;
         System.out.println(min);
 
     }
-
 
     private static void backTrack(int[][]arr, int dept) {
         if(dept == limit) {
@@ -63,81 +55,80 @@ public class Cctv_15683 {
         else {
             Point now = cctvList.get(dept);
             int tmp[][];
-            for (int idx = 0; idx < limit; idx++) {
                 switch (now.num) {
                     case 1 :
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkDown(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
                         // clone 은 깊은 복사가 아니다 깊은 복사하는 함수를 구현해야한다!!!!!!
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkRight(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkUp(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkLeft(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
                         break;
 
                     case 2:
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkDown(tmp, now.y, now.x);
                         checkUp(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkRight(tmp, now.y, now.x);
                         checkLeft(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
                         break;
 
                     case 3:
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkDown(tmp, now.y, now.x);
                         checkRight(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkDown(tmp, now.y, now.x);
                         checkLeft(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkLeft(tmp, now.y, now.x);
                         checkUp(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkUp(tmp, now.y, now.x);
                         checkRight(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
                         break;
 
                     case 4:
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkLeft(tmp, now.y, now.x);
                         checkRight(tmp, now.y, now.x);
                         checkUp(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkUp(tmp, now.y, now.x);
                         checkDown(tmp, now.y, now.x);
                         checkLeft(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkLeft(tmp, now.y, now.x);
                         checkRight(tmp, now.y, now.x);
                         checkDown(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
 
-                        tmp= deepCopy(arr);
+                        tmp = deepCopy(arr);
                         checkUp(tmp, now.y, now.x);
                         checkDown(tmp, now.y, now.x);
                         checkRight(tmp, now.y, now.x);
@@ -152,8 +143,8 @@ public class Cctv_15683 {
                         checkLeft(tmp, now.y, now.x);
                         backTrack(tmp, dept + 1);
                         break;
+                    default: break;
                 }
-            }
         }
 
     }
@@ -183,28 +174,28 @@ public class Cctv_15683 {
 
     private static void checkDown(int[][] arr, int y, int x){
         int ny = y + 1;
-        while (ny < N && (arr[ny][x] == 0 || arr[ny][x] == -1)) {
+        while (ny < N && (arr[ny][x] >= -1 && arr[ny][x] < 6)) {
             arr[ny][x] = -1;
             ny++;
         }
     }
     private static void checkUp(int[][] arr, int y, int x){
         int ny = y - 1;
-        while (ny >= 0 && (arr[ny][x] == 0 || arr[ny][x] == -1)) {
+        while (ny >= 0 && (arr[ny][x] >= -1 && arr[ny][x] < 6)) {
             arr[ny][x] = -1;
             ny--;
         }
     }
     private static void checkLeft(int[][] arr, int y, int x){
         int nx = x - 1;
-        while (nx >= 0 && (arr[y][nx] == 0 || arr[y][nx] == -1)) {
+        while (nx >= 0 && arr[y][nx] >= -1 && arr[y][nx] < 6) {
             arr[y][nx] = -1;
             nx--;
         }
     }
     private static void checkRight(int[][] arr, int y, int x){
         int nx = x + 1;
-        while (nx < M  && (arr[y][nx] == 0 || arr[y][nx] == -1)) {
+        while (nx < M  && arr[y][nx] >= -1 && arr[y][nx] < 6) {
             arr[y][nx] = -1;
             nx++;
         }
