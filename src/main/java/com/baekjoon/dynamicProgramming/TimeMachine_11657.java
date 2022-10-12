@@ -44,11 +44,12 @@ public class TimeMachine_11657 {
 
          //벨만 포드
          distance[1] = 0;
-        for (int i = 1; i < N; i++) { // 1번 버스 부터 ~
+        for (int i = 1; i <= N; i++) { // 1번 버스 부터 ~
             for (int j = 0; j < M; j++) {
                 Bus bus = buses.get(j);
                 if(distance[bus.start] == INF) continue;
                 distance[bus.end] = Math.min(distance[bus.end], distance[bus.start] + bus.weight );
+//                System.out.println(bus.end + " ]  " + bus.start + " ---->  " + bus.end + " : " + distance[bus.start] + bus.weight);
             }
         }
         
@@ -61,7 +62,7 @@ public class TimeMachine_11657 {
         }
 
         if(!is) {
-            for (int i = 0; i < N; i++) {
+            for (int i = 2; i <= N; i++) {
                 System.out.println(distance[i] == INF ? -1 : distance[i]);
             }
         }
