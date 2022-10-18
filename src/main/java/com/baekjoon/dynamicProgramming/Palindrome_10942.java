@@ -38,8 +38,13 @@ public class Palindrome_10942 {
             int start = func.apply(st.nextToken());
             int end = func.apply(st.nextToken());
             int result = 0;
-
-            if(start == end) result = 1;
+            if (N == 1) result = 0;
+            else if(start == end) result = 1;
+            else if(arr[start] != arr[end]) result = 0;
+            else if((start + 1 <= N) && (end - 1 >= 0) && (dp[start+1][end-1] == 1)) {
+                if(arr[start] == arr[end]) result = 1;
+                else result = 0;
+            }
             else if(start + 1 == end || start + 2 == end) {
 //                System.out.println("start : " + arr[start] +" end : " + arr[end]);
                 if(arr[start] == arr[end]) result = 1;
@@ -57,21 +62,21 @@ public class Palindrome_10942 {
 
     private static boolean palindrome(int s, int e) {
         while (s <= e) {
-            if(dp[s][e] == 1) return true;
-            else if (dp[s][e] == 0) {
+//            if(dp[s][e] == 1) return true;
+            if (dp[s][e] == 0) {
                 return false;
             }
             else if(dp[s][e] == -1){ // 계산하고 팰린드롬이면 1, 아니면 0
                 if(arr[s] == arr[e]){
                     dp[s][e] = 1;
-                    s++;
-                    e--;
                 }
                 else {
                     dp[s][e] = 0;
                     return false;
                 }
             }
+            s++;
+            e--;
 
         }
         return true;
