@@ -1,8 +1,6 @@
 package com.example.baekjoon.baekjoon.dynamicProgramming;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 import java.util.function.Function;
 
@@ -15,6 +13,7 @@ public class Palindrome_10942 {
         Function<String, Integer> func = Integer::parseInt;
         StringTokenizer st;
         StringBuilder sb = new StringBuilder();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         N = func.apply(br.readLine());
         arr = new int[N+1];
@@ -37,49 +36,33 @@ public class Palindrome_10942 {
             st = new StringTokenizer(br.readLine());
             int start = func.apply(st.nextToken());
             int end = func.apply(st.nextToken());
-            int result = 0;
-            if (N == 1) result = 0;
+            int result;
+            if (arr[start] != arr[end]) result = 0;
             else if(start == end) result = 1;
-            else if(arr[start] != arr[end]) result = 0;
-            else if((start + 1 <= N) && (end - 1 >= 0) && (dp[start+1][end-1] == 1)) {
-                if(arr[start] == arr[end]) result = 1;
-                else result = 0;
-            }
             else if(start + 1 == end || start + 2 == end) {
-//                System.out.println("start : " + arr[start] +" end : " + arr[end]);
                 if(arr[start] == arr[end]) result = 1;
                 else result = 0;
             }
             else {
-                result = palindrome(start, end) ? 1 : 0;
+                result = palindrome(start, end);
             }
             sb.append(result).append("\n");
         }
-        System.out.println(sb);
+//        System.out.println(sb);
+        bw.write(String.valueOf(sb));
+        bw.flush();
+        bw.close();
 
 
     }
 
-    private static boolean palindrome(int s, int e) {
-        while (s <= e) {
-//            if(dp[s][e] == 1) return true;
-            if (dp[s][e] == 0) {
-                return false;
-            }
-            else if(dp[s][e] == -1){ // 계산하고 팰린드롬이면 1, 아니면 0
-                if(arr[s] == arr[e]){
-                    dp[s][e] = 1;
-                }
-                else {
-                    dp[s][e] = 0;
-                    return false;
-                }
-            }
-            s++;
-            e--;
-
+    private static int palindrome(int s, int e) {
+        if (s >= e) return 1; // 이 경우까지 내려가면 팰린드롬임
+        if (dp[s][e] != -1) {
+            return dp[s][e];
         }
-        return true;
+        if(arr[s] == arr[e]) return  dp[s][e] = palindrome(s+1, e-1);
+       return 0;
     }
 
 }
