@@ -21,26 +21,21 @@ public class Dictionary_programmers_84512 {
     public static int solution(String word) {
         int answer = 0;
 
-        backTrack(0, "");
+        backTrack( "");
+        answer = dictionary.indexOf(word) + 1;
 
         return answer;
     }
 
-    public static void backTrack(int index, String str) {
+    public static void backTrack(String str) {
         if (str.length() > 0 && str.length() <= 5) {
             dictionary.add(str);
         }
 
         if(str.length() == 5) return;
 
-        for (int i = index; i < 5; i++) {
-//            str += arr[i];
-//            backTrack(i, str);
-//            str = str.substring(0, str.length() - 1);
-//            str = "";
-//            index++;
-            backTrack(i, str + arr[i]);
-//            str = str.substring(0, str.length() - 1);
+        for (int i = 0; i < 5; i++) {
+            backTrack( str + arr[i]);
         }
     }
 }
