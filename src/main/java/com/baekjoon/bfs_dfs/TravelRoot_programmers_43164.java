@@ -3,15 +3,16 @@ package com.example.baekjoon.baekjoon.bfs_dfs;
 import java.util.*;
 
 public class TravelRoot_programmers_43164 {
+    static List<String> result = new ArrayList<>();
     public static void main(String[] args) {
-//        String[][] tickets = {{"ICN", "JFK"}, {"HND", "IAD"}, {"JFK", "HND"}};
+        String[][] tickets = {{"ICN", "JFK"}, {"HND", "IAD"}, {"JFK", "HND"}};
 //        String[][] tickets = {{"ICN", "AAA"}, {"ICN", "AAA"}, {"ICN", "AAA"}, {"AAA", "ICN"}, {"AAA", "ICN"}};
-        String[][] tickets = {{"ICN", "BOO"}, {"ICN", "COO"}, {"COO", "DOO"}, {"DOO", "COO"}, {"BOO", "DOO"}, {"DOO", "BOO"}, {"BOO", "ICN"}, {"COO", "BOO"}};
+//        String[][] tickets = {{"ICN", "BOO"}, {"ICN", "COO"}, {"COO", "DOO"}, {"DOO", "COO"}, {"BOO", "DOO"}, {"DOO", "BOO"}, {"BOO", "ICN"}, {"COO", "BOO"}};
         solution(tickets);
     }
 
     public static String[] solution(String[][] tickets){
-        List<String> result = new ArrayList<>();
+        List<String> tmp = new ArrayList<>();
 
         List<Root> rootList = new ArrayList<>();
         boolean visited[] = new boolean[tickets.length];
@@ -22,21 +23,25 @@ public class TravelRoot_programmers_43164 {
 
         Collections.sort(rootList, Comparator.comparing(Root::getStart).thenComparing(Root::getEnd));
 
-        result.add("ICN");
-        dfs(rootList, "ICN", result, 0, visited);
+        tmp.add("ICN");
+        dfs(rootList, "ICN", tmp, 0, visited);
 
-        return result.stream().toArray(String[]::new);
+        // 모든 경우 중 첫 루트가 조건에 부합하므로 첫 루트만 리턴한다.
+        return result.subList(0, rootList.size()+1).stream().toArray(String[]::new);
     }
 
-    public static void dfs(List<Root> rootList, String start, List<String> result, int depth, boolean visited[]) {
-        if(depth == rootList.size() && result.size() == (rootList.size()/2 + 1)) return;
-        for(int i=0; i< rootList.size(); i++) {
-            if(rootList.get(i).start.equals(start) && !visited[i]) {
-                visited[i] = true;
-                result.add(rootList.get(i).end);
-                dfs(rootList, rootList.get(i).end, result, depth + 1, visited);
-                visited[i] = false;
-                if(result.size() > 0) result.remove(result.size() - 1);
+    public static void dfs(List<Root> rootList, String start, List<String> tmp, int depth, boolean visited[]) {
+        if(depth == rootList.size() && tmp.size() == rootList.size() + 1) {
+            result.addAll(tmp); // 가능한 모든 경로가 저장됨
+        } else {
+            for(int i=0; i< rootList.size(); i++) {
+                if(rootList.get(i).start.equals(start) && !visited[i]) {
+                    visited[i] = true;
+                    tmp.add(rootList.get(i).end);
+                    dfs(rootList, rootList.get(i).end, tmp, depth + 1, visited);
+                    visited[i] = false;
+                    if(tmp.size() > 0) tmp.remove(tmp.size() - 1);
+                }
             }
         }
     }
@@ -57,7 +62,6 @@ public class TravelRoot_programmers_43164 {
         public String getEnd() {
             return end;
         }
-
     }
 
         // 2022.01.08
